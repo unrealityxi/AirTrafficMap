@@ -14,7 +14,7 @@ import style from "./styles/style.scss";
   "use strict";
   let CORSBypassAddress = "https://cors-anywhere.herokuapp.com/";
 
-  const USER_IP_DATA_URL = "http://ip-api.com/json";
+  const USER_IP_DATA_URL = "https://api.ipdata.co/?api-key=test";
   const openSky = "https://opensky-network.org/api/states/all";
   const virtualRadar = CORSBypassAddress + "https://public-api.adsbexchange.com/VirtualRadar/AircraftList.json";
   const AIR_DATA_URL = openSky;
@@ -49,7 +49,7 @@ import style from "./styles/style.scss";
    * Returns user coords object {lat, lon}
    */
   function getUserCoordinates(geoIpData) {
-    let userCoordinates = { lat: geoIpData.lat, lon: geoIpData.lon };
+    let userCoordinates = { lat: geoIpData.latitude, lon: geoIpData.longitude };
     return userCoordinates;
   }
 
