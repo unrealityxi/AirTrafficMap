@@ -78,7 +78,7 @@ import style from "./styles/style.scss";
       ],
       view: new ol.View({
         center: ol.proj.fromLonLat([coords.lon, coords.lat]),
-        zoom: 10
+        zoom: 9
       }),
       overlays: [popupOverlay]
     });
@@ -106,6 +106,8 @@ import style from "./styles/style.scss";
       let showPointer = map.hasFeatureAtPixel(evt.pixel);
       if (showPointer) {
         map.getTargetElement().style.cursor = "pointer"
+      } else {
+        map.getTargetElement().style.cursor = "auto"
       }
       
     });
@@ -271,6 +273,7 @@ import style from "./styles/style.scss";
   function hideLoader() {
     let loader = document.querySelector(".loader");
     loader.classList.add("invisible");
+    // loader.style.display = "none";
     setTimeout(() => loader.classList.add("hidden"), 2000);
   }
 
